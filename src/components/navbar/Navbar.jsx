@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const Navbar = () => {
   return (
-    <div className=' flex justify-between m-2'>
+    <div className=' absolute w-full flex items-center justify-between  z-50 m-2'>
       <Link to='/'>
         <h1 className=' text-red-600  font-nsans-bold  cursor-pointer text-4xl'>NETFLIX</h1>
       </Link>
