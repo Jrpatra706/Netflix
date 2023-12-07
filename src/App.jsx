@@ -6,12 +6,14 @@ import Login from './pages/login/Login'
 import Signup from './pages/signup/Signup'
 import Profile from './pages/profile/Profile'
 import Navbar from './components/navbar/Navbar'
+import { AuthContextProvider } from './context/AuthContext'
 
 function App() {
  
 
   return (
     <>
+    <AuthContextProvider>
       <Navbar/>
       <Routes>
         <Route path='/' element={<Home/>}/>
@@ -19,6 +21,7 @@ function App() {
         <Route path='/signup' element={<Signup/>}/>
         <Route path='/profile' element={<Profile/>}/>
       </Routes>
+      </AuthContextProvider>
     </>
   )
 }
