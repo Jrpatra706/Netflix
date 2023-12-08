@@ -6,7 +6,7 @@ const Hero = () => {
   const [movie,setMovie]= useState({});
 
   useEffect(()=>{
-    axios.get(endpoints.popular).then((response)=>{
+    axios.get(endpoints.trending).then((response)=>{
       const movies = response.data.results;
       setMovie(movies[Math.floor(Math.random()*movies.length)]);
     });

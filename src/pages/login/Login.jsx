@@ -1,17 +1,25 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useRef } from 'react'
+import { UserAuth } from '../../context/AuthContext'
 
 const Login = () => {
+  const {user,logIn}= UserAuth();
+  const navigate = useNavigate();
    
   const emailRef = useRef(null);
   const passRef = useRef(null);
 
-  const loginHandler=()=>{
-    console.log(emailRef.current.value);
-    console.log(passRef.current.value);
-    emailRef.current.value='';
-    passRef.current.value='';
+  const loginHandler=async ()=>{
+    try{
+      await logIn(emailRef.current.value,passRef.current.value);
+      navigate('/');
+      emailRef.current.value='';
+      passRef.current.value='';
+    }
+    catch(err){
+      console.log(err);
+    }
   }
 
   return (

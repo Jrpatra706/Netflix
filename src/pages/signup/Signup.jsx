@@ -18,8 +18,6 @@ const Signup = () => {
     } catch (error){
       console.log(error)
     }
-    console.log(emailRef.current.value);
-    console.log(passRef.current.value);
     emailRef.current.value='';
     passRef.current.value='';
   }
