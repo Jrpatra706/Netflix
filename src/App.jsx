@@ -8,6 +8,7 @@ import Profile from './pages/profile/Profile'
 import Navbar from './components/navbar/Navbar'
 import { AuthContextProvider } from './context/AuthContext'
 import ProtectedRoute from './components/protectedRoute/ProtectedRoute'
+import Footer from './components/footer/Footer'
 
 function App() {
  
@@ -26,6 +27,7 @@ function App() {
             </ProtectedRoute>
           }/>
         </Routes>
+        <Footer/>
       </AuthContextProvider>
     </>
   )
