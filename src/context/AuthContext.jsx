@@ -9,6 +9,7 @@ import {
      onAuthStateChanged
 } from 'firebase/auth'
 import { auth, db } from '../services/firebse'
+import {doc, setDoc} from 'firebase/firestore'
 
 // const { createContext } = require("react");
 const AuthContext = createContext();
@@ -26,7 +27,11 @@ export function AuthContextProvider({children}){
     },[])
 
     function signUp(email,password){
-        createUserWithEmailAndPassword(auth , email, password)
+        createUserWithEmailAndPassword(auth , email, password);
+        // for creating database in firestore
+        setDoc(doc(db,'users',email),{ 
+            favShows:[],
+        });
     }
 
     function logIn(email, password){
